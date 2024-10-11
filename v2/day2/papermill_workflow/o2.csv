@@ -1,0 +1,402 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "ba992094-6901-412c-8cdf-520444d57ab3",
+   "metadata": {
+    "editable": true,
+    "execution": {
+     "iopub.execute_input": "2024-10-11T17:54:15.979212Z",
+     "iopub.status.busy": "2024-10-11T17:54:15.978210Z",
+     "iopub.status.idle": "2024-10-11T17:54:16.679107Z",
+     "shell.execute_reply": "2024-10-11T17:54:16.678447Z"
+    },
+    "papermill": {
+     "duration": 0.711394,
+     "end_time": "2024-10-11T17:54:16.679611",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:15.968217",
+     "status": "completed"
+    },
+    "slideshow": {
+     "slide_type": ""
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import papermill as pm"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a16e75c3-b736-4806-b8a7-1060dc291aa6",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001504,
+     "end_time": "2024-10-11T17:54:16.688495",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:16.686991",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Parameters"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "6b11a11a-253d-4ef6-8bf1-68d514b2a6ac",
+   "metadata": {
+    "editable": true,
+    "execution": {
+     "iopub.execute_input": "2024-10-11T17:54:16.692519Z",
+     "iopub.status.busy": "2024-10-11T17:54:16.692519Z",
+     "iopub.status.idle": "2024-10-11T17:54:16.694967Z",
+     "shell.execute_reply": "2024-10-11T17:54:16.694967Z"
+    },
+    "papermill": {
+     "duration": 0.006473,
+     "end_time": "2024-10-11T17:54:16.695972",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:16.689499",
+     "status": "completed"
+    },
+    "slideshow": {
+     "slide_type": ""
+    },
+    "tags": [
+     "parameters"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "# Parameters\n",
+    "input_csv_url = \"https://uni-bonn.sciebo.de/s/FYJPmdTyPo1qwRX/download\"\n",
+    "output_csv = \"processed.csv\"\n",
+    "num_rows_display = 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "bebf7920",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-10-11T17:54:16.699972Z",
+     "iopub.status.busy": "2024-10-11T17:54:16.699972Z",
+     "iopub.status.idle": "2024-10-11T17:54:16.702212Z",
+     "shell.execute_reply": "2024-10-11T17:54:16.702212Z"
+    },
+    "papermill": {
+     "duration": 0.006259,
+     "end_time": "2024-10-11T17:54:16.703231",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:16.696972",
+     "status": "completed"
+    },
+    "tags": [
+     "injected-parameters"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "# Parameters\n",
+    "input_csv_url = \"https://uni-bonn.sciebo.de/s/O1ybfiVcqROP00W/download\"\n",
+    "output_csv = \"processed_2.csv\"\n",
+    "num_rows_display = 10\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "161b2d4e-6858-418e-9530-ee53694d6742",
+   "metadata": {
+    "papermill": {
+     "duration": 0.003238,
+     "end_time": "2024-10-11T17:54:16.708465",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:16.705227",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Read the CSV file"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "766cb135-b6b3-47de-bf26-ae1c85c81c72",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-10-11T17:54:16.714470Z",
+     "iopub.status.busy": "2024-10-11T17:54:16.714470Z",
+     "iopub.status.idle": "2024-10-11T17:54:17.121482Z",
+     "shell.execute_reply": "2024-10-11T17:54:17.120443Z"
+    },
+    "papermill": {
+     "duration": 0.411995,
+     "end_time": "2024-10-11T17:54:17.123479",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:16.711484",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "df = pd.read_csv(input_csv_url)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fc564c40-7e75-4055-aa5a-41f489a8e40b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.003583,
+     "end_time": "2024-10-11T17:54:17.131414",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:17.127831",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Number of rows"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "ee0617b3-60f8-48a7-aed0-846e560ff0bd",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-10-11T17:54:17.146677Z",
+     "iopub.status.busy": "2024-10-11T17:54:17.146677Z",
+     "iopub.status.idle": "2024-10-11T17:54:17.157459Z",
+     "shell.execute_reply": "2024-10-11T17:54:17.157459Z"
+    },
+    "papermill": {
+     "duration": 0.02107,
+     "end_time": "2024-10-11T17:54:17.158484",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:17.137414",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>mouse</th>\n",
+       "      <th>count</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Tatum</td>\n",
+       "      <td>949</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Muller</td>\n",
+       "      <td>782</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Cori</td>\n",
+       "      <td>693</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Moniz</td>\n",
+       "      <td>606</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Theiler</td>\n",
+       "      <td>343</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     mouse  count\n",
+       "0    Tatum    949\n",
+       "1   Muller    782\n",
+       "2     Cori    693\n",
+       "3    Moniz    606\n",
+       "4  Theiler    343"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.head(num_rows_display)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "46698dd5-fcd9-4ab0-8f9c-b67aac4273cb",
+   "metadata": {
+    "papermill": {
+     "duration": 0.002998,
+     "end_time": "2024-10-11T17:54:17.162485",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:17.159487",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Process the data (in this case, we'll just double a numerical column)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "5c524725-be97-433a-9b68-3d08bee40bca",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-10-11T17:54:17.167485Z",
+     "iopub.status.busy": "2024-10-11T17:54:17.166485Z",
+     "iopub.status.idle": "2024-10-11T17:54:17.170677Z",
+     "shell.execute_reply": "2024-10-11T17:54:17.169957Z"
+    },
+    "papermill": {
+     "duration": 0.007288,
+     "end_time": "2024-10-11T17:54:17.171772",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:17.164484",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "df['num_trials'] = df['count'] * 2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "eb2b8aff-0705-48e4-aef9-e8af281d8aa0",
+   "metadata": {
+    "papermill": {
+     "duration": 0.00529,
+     "end_time": "2024-10-11T17:54:17.183553",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:17.178263",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Save the processed data to the output CSV"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "e0d28b77-8a64-42cf-8c5b-c548938dcbe2",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-10-11T17:54:17.197555Z",
+     "iopub.status.busy": "2024-10-11T17:54:17.196556Z",
+     "iopub.status.idle": "2024-10-11T17:54:17.205192Z",
+     "shell.execute_reply": "2024-10-11T17:54:17.205192Z"
+    },
+    "papermill": {
+     "duration": 0.017653,
+     "end_time": "2024-10-11T17:54:17.207208",
+     "exception": false,
+     "start_time": "2024-10-11T17:54:17.189555",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Processed data saved to processed_2.csv'"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.to_csv(output_csv, index=False)\n",
+    "\n",
+    "f\"Processed data saved to {output_csv}\""
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 2.447437,
+   "end_time": "2024-10-11T17:54:17.461229",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "papermill_workflow/notebook_1.ipynb",
+   "output_path": "papermill_workflow/o2.csv",
+   "parameters": {
+    "input_csv_url": "https://uni-bonn.sciebo.de/s/O1ybfiVcqROP00W/download",
+    "num_rows_display": 10,
+    "output_csv": "processed_2.csv"
+   },
+   "start_time": "2024-10-11T17:54:15.013792",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
