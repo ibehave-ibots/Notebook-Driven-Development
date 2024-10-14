@@ -13,7 +13,7 @@ Use `pandas` and `hvplot` for analysis in `Presentation.ipynb`.
 - [ ] The project and materials should be specific to the topics trying to be learned
 - [ ] Resources should be given/highlighted for further information
 
-Learning Goals:
+Application:
 1. markdown
 2. code
 3. pandas
