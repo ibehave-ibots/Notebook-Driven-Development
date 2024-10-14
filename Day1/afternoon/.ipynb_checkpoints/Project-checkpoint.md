@@ -13,9 +13,9 @@ Make and share a panel dashboard using starter code provided in `Dashboard.ipynb
 - [ ] Resources should be given/highlighted for further information
 
 Application:
-1. markdown
-2. code
-3. pandas
-4. hvplot
-5. slide tag
-6. export as reveal.js
+1. panel preview
+2. panel layout
+3. launching terminal from jupyter lab
+4. `panel serve name.ipynb` from terminal
+5. github public repo creation
+6. manual upload and download of notebooks
