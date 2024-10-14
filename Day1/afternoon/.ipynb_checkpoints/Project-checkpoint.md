@@ -15,7 +15,8 @@ Make and share a panel dashboard using starter code provided in `Dashboard.ipynb
 Application:
 1. panel preview
 2. panel layout
-3. launching terminal from jupyter lab
-4. `panel serve name.ipynb` from terminal
-5. github public repo creation
-6. manual upload and download of notebooks
+3. panel widgets
+4. launching terminal from jupyter lab
+5. `panel serve name.ipynb` from terminal
+6. github public repo creation
+7. manual upload and download of notebooks
