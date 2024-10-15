@@ -1,3 +1,4 @@
 data/*
+*.layout
 *.html
 02_Making Reports and Presentations in Notebook.md
