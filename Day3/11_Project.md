@@ -1,6 +1,6 @@
 # Project: a doit workflow
 
-Create a doit workflow to download and analyze "steinmetz_all.csv" data.
+Create a doit workflow to download and analyze "steinmetz_all.csv" data where the download link is https://uni-bonn.sciebo.de/s/QcC6e3LXiNlNl0X/download.
 
 ---
 
