@@ -1,0 +1,4 @@
+output*
+*.csv
+execute_notebooks/*
+parameterization*
