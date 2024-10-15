@@ -5,7 +5,7 @@
 
 ## Day 2
 [06_Project](Day2/06_Project.md) </br>
-[08_Project](Day2/07_Project.md)
+[08_Project](Day2/08_Project.md)
 
 
 ## Day 3
