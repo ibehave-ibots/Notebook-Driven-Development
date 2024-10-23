@@ -1,4 +1,5 @@
 magic_commands/*
 run_section/*
+data_project/*
 *.py
 *.txt
