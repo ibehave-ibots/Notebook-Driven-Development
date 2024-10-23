@@ -6,5 +6,5 @@ command_line/*
 *.csv
 output*
 script.ipynb
-*.py
+script.py
 *.txt
