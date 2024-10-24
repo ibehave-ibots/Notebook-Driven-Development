@@ -1,2 +1,6 @@
 data/*
 *.png
+nb*
+plots.ipynb
+process.ipynb
+stats.ipynb
